@@ -18,14 +18,16 @@
 <body>
     <div class="container">
         <div class="title text-center mb-5">
-            <img src="{{ public_path('public/uploads/wikrama-logo.png') }}" alt="">
-            <h2>Layanan Pengaduan Masyarakat Online</h2>
+            <img src="{{ public_path('public/uploads/wikrama-logo.png') }}" width="100px" alt="">
+            <h2>Layanan Pengaduan Masyarakat
+                <h3>SMK Wikrama Bogor</h3>
+            </h2>
         </div>
         <hr class="solid">
     </div>
     <div>
         <h6>Laporan Pengaduan</h6>
-        <h6>{{ $pengaduan->created_at->format('l, d F Y') }}</h6>
+        <h6>{{ $pengaduan->tgl_pengaduan}}</h6>
     </div>
     <hr class="solid">
 

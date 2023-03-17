@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pengaduan;
-use App\Models\Tanggapan;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
-class TanggapanController extends Controller
+class RegistrasiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +15,9 @@ class TanggapanController extends Controller
      */
     public function index()
     {
-        return view('tanggapan.create');
+        $users = User::all();
+
+        return view('layouts.register', compact('users'));
     }
 
     /**
@@ -38,19 +38,25 @@ class TanggapanController extends Controller
      */
     public function store(Request $request)
     {
-        DB::table('pengaduans')->where('id', $request->pengaduan_id)->update([
-            'status' => $request->status
+        $request->validate([
+            'name' => 'required',
+            'nik' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+            'phone' => 'required',
+            'role' => 'required',
         ]);
 
-        $petugas_id = Auth::user()->id;
-        $data = $request->all();
+        User::create([
+            'name' => $request->name,
+            'nik' => $request->nik,
+            'username' => $request->username,
+            'password' => Hash::make($request->password),
+            'phone' => $request->phone,
+            'role' => $request->role,
+        ]);
 
-        $data['pengaduan_id'] = $request->pengaduan_id;
-        $data['petugas_id'] = $petugas_id;
-        
-
-        Tanggapan::create($data);
-        return redirect()->route('pengaduan.index')->with('success', 'Berhasil Menambahkan Tanggapan!');
+        return redirect()->route('login')->with('success', 'Berhasil Registrasi Akun!');
     }
 
     /**
@@ -61,13 +67,7 @@ class TanggapanController extends Controller
      */
     public function show($id)
     {
-        $pengaduan = Pengaduan::with([
-            'details', 'users'
-        ])->findOrFail($id);
-
-        return view('tanggapan.create', [
-            'pengaduan' => $pengaduan
-        ]);
+        //
     }
 
     /**

@@ -19,10 +19,10 @@
 
   <nav class="flex items-center justify-between flex-wrap bg-blue-200 p-7 px-20">
     <div class="flex items-center flex-shrink-0 text-black mr-6">
-      <img src="{{ asset('img/logo.svg')}}" alt=""
+      <img src="{{ asset('public/uploads/wikrama-logo.png')}}" width="70px" alt=""
         class="transform transition hover:scale-125 duration-300 ease-in-out" />
       <span class="font-bold tracking-wider text-xl">
-        &nbsp PENGKAT</span>
+        &nbsp PENGWIK</span>
     </div>
     <div class="block lg:hidden">
       <button
@@ -63,7 +63,7 @@
       <!--Left Col-->
       <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left text-gray-800">
         <h1 class="my-4 text-4xl font-bold leading-tight">
-          Layanan Pengaduan Masyarakat Online
+          Layanan Pengaduan Masyarakat SMK Wikrama Bogor
         </h1>
         <p class="leading-normal text-1xl mb-8">
           Sampaikan laporan masalah Anda di sini, kami akan memprosesnya
@@ -157,13 +157,10 @@
   </div>
   <!-- Footer -->
   <footer class="text-center font-medium bg-blue-200 py-5">
-    © {{ now()->year }} PENGKAT | By
+    © {{ now()->year }} PENGWIK | By
     <a href="https://riviandixan.vercel.app/" class="text-blue-500" target="_blank">Rivi Andixan</a>
   </footer>
 </body>
 
 </html>
 
-{{-- composer require barryvdh/laravel-dompdf --}}
-{{-- Barryvdh\DomPDF\ServiceProvider::class, --}}
-{{-- 'PDF' => Barryvdh\DomPDF\Facade::class, --}}

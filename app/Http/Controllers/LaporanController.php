@@ -17,7 +17,7 @@ class LaporanController extends Controller
         $laporans = Pengaduan::with('users')->get();
         // dd($laporans);
         if(!is_null($request->start_date) && !is_null($request->end_date)){
-            $laporans =  Pengaduan::whereBetween('created_at', [Carbon::parse($request->start_date), Carbon::parse(date($request->end_date). ' 23:59:59')])->get();
+            $laporans =  Pengaduan::whereBetween('tgl_pengaduan', [Carbon::parse($request->start_date), Carbon::parse(date($request->end_date). ' 23:59:59')])->get();
         }
         // dd($laporans);
         return view('laporan.index', [
@@ -27,18 +27,19 @@ class LaporanController extends Controller
         ]);
     }
 
+
     public function cetak_pdf(Request $request){
 
         $start_date = @$request->start_date != null ? $request->start_date : date('Y-m-d');
         $end_date   = @$request->end_date != null ? $request->end_date : date('Y-m-d');
 
-        $pengaduans = Pengaduan::with('users')->get();
-        // dd($pengaduans);
+        $pengaduan = Pengaduan::with('users')->get();
+        // dd($pengaduan);
         if(!is_null($request->start_date) && !is_null($request->end_date)){
-            $pengaduans =  Pengaduan::whereBetween('created_at', [Carbon::parse($request->start_date), Carbon::parse(date($request->end_date). ' 23:59:59')])->get();
+            $pengaduan =  Pengaduan::whereBetween('tgl_pengaduan', [Carbon::parse($request->start_date), Carbon::parse(date($request->end_date). ' 23:59:59')])->get();
         }
 
-        $pdf = PDF::loadview('laporan.cetak', compact('pengaduans'))->setPaper('a4');
+        $pdf = PDF::loadview('laporan.cetak', compact('pengaduan'));
         return $pdf->download('laporan.pdf');
     }
 }

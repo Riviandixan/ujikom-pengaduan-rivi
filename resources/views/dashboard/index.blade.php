@@ -5,8 +5,8 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
-                <h3 class="text-center">DASHBOARD
-                    <br><p class="title-dashboard">PENGADUAN MASYARAKAT</p>
+                <h3 class="text-center">DASHBOARD PENGADUAN MASYARAKAT
+                    <br><p class="title-dashboard">SMK Wikrama Bogor</p>
                 </h3>
             </div>
         </div>
@@ -32,7 +32,7 @@
         </div>
     </div>
     <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
-        <div class="card border-primary">
+        <div class="card border-info">
             <div class="card-body">
                 <div class="media">
                     <div class="avatar bg-light-info mr-2">
@@ -52,7 +52,7 @@
         <div class="card border-success">
             <div class="card-body">
                 <div class="media">
-                    <div class="avatar bg-light-info mr-2">
+                    <div class="avatar bg-light-success mr-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                 fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
                                 <path

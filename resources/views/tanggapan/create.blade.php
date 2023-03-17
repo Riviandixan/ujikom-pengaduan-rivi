@@ -20,20 +20,29 @@
                                     placeholder="Isi Tanggapan Anda" value={{ old('description') }} required></textarea>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-3">
                             <div class="form-group">
                                 <strong>Tanggal Tanggapan</strong>
                                 <input type="date" name="tgl_tanggapan" class="form-control"
                                     placeholder="Tanggal Tanggapan" required>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
                             <div class="form-group">
                                 <strong>Status</strong>
                                 <select name="status" id="status" class="form-control" required>
                                     <option value="pending">Pending</option>
                                     <option value="proses">Proses</option>
                                     <option value="selesai">Selesai</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <strong>Bersifat</strong>
+                                <select name="bersifat" id="bersifat" class="form-control" required>
+                                    <option value="umum">Umum</option>
+                                    <option value="khusus">Khusus</option>
                                 </select>
                             </div>
                         </div>

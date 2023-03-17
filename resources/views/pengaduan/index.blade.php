@@ -69,7 +69,7 @@
                     <tr>
                         <td class="text-center"><img src="{{ asset('public/uploads/' . $pengaduan->foto) }}" alt="foto"
                                 width="100px"></td>
-                        <td class="text-center">{{ $pengaduan->created_at->format('l, d F Y') }}</td>
+                        <td class="text-center">{{ date('d-M-Y 🕒', strtotime($pengaduan->tgl_pengaduan)) }}</td>
                         <td class="text-center">
                             @if ($pengaduan->status == 'pending')
                                 <span class="badge badge-sm bg-gradient-secondary">Pending</span>

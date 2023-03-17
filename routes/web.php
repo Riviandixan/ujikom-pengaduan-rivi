@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MasyarakatController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PetugasController;
+use App\Http\Controllers\RegistrasiController;
 use App\Http\Controllers\TanggapanController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,17 +21,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Landing Page
 Route::get('/', function () {
     return view('welcome');
 });
 
+// Login
 Route::get('/login', function () {
     return view('layouts.login');
 })->name('login');
-
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout']);
 
+// Register
+Route::resource('register', RegistrasiController::class);
+
+// Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
 // Pengaduan

@@ -10,7 +10,7 @@
             @foreach ($pengaduan->details as $data)
             <h4>NIK: {{ $data->user_nik }}</h4>
             <h4>No Telepon: {{ $pengaduan->users->phone }}</h4>
-            <h4>Tanggal: {{ $pengaduan->created_at->format('l, d F Y') }}</h4>
+            <h4>Tanggal: {{ date('d-M-Y', strtotime($pengaduan->tgl_pengaduan)) }}</h4>
             <h4>Status:
                 @if ($data->status == 'pending')
                 <span class="badge badge-sm bg-gradient-secondary">Pending</span>
