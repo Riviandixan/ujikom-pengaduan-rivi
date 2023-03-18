@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tanggapan extends Model
+class LogActivity extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'pengaduan_id', 'petugas_id', 'tanggapan', 'tgl_tanggapan', 'kategori'
-    ];
+    protected $table = 'log_activity';
+  
+    protected $guarded = ['id'];
 }

@@ -39,10 +39,10 @@
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <strong>Bersifat</strong>
-                                <select name="bersifat" id="bersifat" class="form-control" required>
-                                    <option value="umum">Umum</option>
-                                    <option value="khusus">Khusus</option>
+                                <strong>Kategori</strong>
+                                <select name="kategori" id="kategori" class="form-control" required>
+                                    <option value="public">Public</option>
+                                    <option value="private">Private</option>
                                 </select>
                             </div>
                         </div>

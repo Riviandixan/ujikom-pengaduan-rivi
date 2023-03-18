@@ -65,13 +65,13 @@
                 <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link" style="color:white;" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="user-nav d-sm-flex d-none">
                             <span class="user-name fw-bolder">
-                                {{ Auth::user()->username }}
+                                {{ Auth::user()->name }}
                             </span>
                             <span class="user-status">
                                 @if (Auth::user()->role == 'admin')
                                     <span>Admin</span>
                                 @elseif(Auth::user()->role == 'masyarakat')
-                                    <span>Masyarakat</span>
+                                    <span>Siswa</span>
                                 @elseif(Auth::user()->role == 'petugas')
                                     <span>Petugas</span>
                                 @endif

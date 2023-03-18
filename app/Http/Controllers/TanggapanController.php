@@ -39,7 +39,8 @@ class TanggapanController extends Controller
     public function store(Request $request)
     {
         DB::table('pengaduans')->where('id', $request->pengaduan_id)->update([
-            'status' => $request->status
+            'status' => $request->status,
+            'kategori' => $request->kategori,
         ]);
 
         $petugas_id = Auth::user()->id;
@@ -47,6 +48,8 @@ class TanggapanController extends Controller
 
         $data['pengaduan_id'] = $request->pengaduan_id;
         $data['petugas_id'] = $petugas_id;
+        $data['kategori'] = $request->kategori;
+        // dd($data);
         
 
         Tanggapan::create($data);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class LoginController extends Controller
 {
@@ -24,6 +25,11 @@ class LoginController extends Controller
             }elseif(Auth::user()->role == 'masyarakat'){
                 return redirect()->intended('/pengaduan');
             }
+
+            $log['created_at'] = date("Y-m-d h:m:s");
+            $log['status'] = 'Login';
+
+            Log::create($log);
         }
 
         return redirect('/')->with('error', 'Login Gagal Silahkan coba lagi!');

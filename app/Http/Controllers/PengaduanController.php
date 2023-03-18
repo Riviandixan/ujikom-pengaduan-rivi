@@ -49,10 +49,12 @@ class PengaduanController extends Controller
 
         $nik = Auth::user()->nik;
         $id = Auth::user()->id;
+        $user_name = Auth::user()->name;
 
         $data = $request->all();
         $data['user_nik'] = $nik;
         $data['user_id'] = $id;
+        $data['user_name'] = $user_name;
 
         if($image = $request->file('foto')){
             $destionationPath = 'public/uploads';
@@ -74,7 +76,7 @@ class PengaduanController extends Controller
     public function show($id)
     {
         $pengaduan = Pengaduan::with(['details', 'users'])->findOrFail($id);
-        $tanggapan = Tanggapan::where('pengaduan_id', $id)->first();
+        $tanggapan = Tanggapan::where('pengaduan_id', $id)->latest();
         // dd($tanggapan);
         // dd($pengaduan);
         return view('pengaduan.show', [

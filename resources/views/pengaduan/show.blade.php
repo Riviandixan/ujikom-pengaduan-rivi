@@ -8,8 +8,17 @@
         </div>
         <div class="card-body">
             @foreach ($pengaduan->details as $data)
+            
+            @if ($data->kategori == 'public')
+            <h4>Nama: {{ $data->user_name }}</h4>
             <h4>NIK: {{ $data->user_nik }}</h4>
             <h4>No Telepon: {{ $pengaduan->users->phone }}</h4>
+            @elseif($data->kategori == 'private')
+            <h4>Nama: <strong>Nama dirahasiakan!</strong></h4>
+            <h4>NIK: <strong>Nik dirahasiakan!</strong></h4>
+            <h4>No Telepon: <strong>No Telepon dirahasiakan!</strong></h4>
+            @endif
+            
             <h4>Tanggal: {{ date('d-M-Y', strtotime($pengaduan->tgl_pengaduan)) }}</h4>
             <h4>Status:
                 @if ($data->status == 'pending')
@@ -21,10 +30,17 @@
                 @endif
 
             </h4>
+            @if ($data->kategori == 'public')
             <h4>Foto: <img src="{{ asset('public/uploads/' . $data->foto) }}" width="200px" alt="foto"></h4>
             <h3 class="text-center">Keterangan
                 <p style="font-size: 16px;">{{ $data->isi_laporan }}</p>
             </h3><br>
+            @elseif($data->kategori == 'private')
+            <h4>Foto: <strong>Foto dirahasiakan!</strong></h4>
+            <h3 class="text-center">Keterangan
+                <p style="font-size: 16px;"><strong>Pengaduan dirahasiakan!</strong></p>
+            </h3><br>
+            @endif
             <h3 class="text-center">Tanggapan
                 <p style="font-size: 16px;">
                     @if (empty($tanggapan->tanggapan))

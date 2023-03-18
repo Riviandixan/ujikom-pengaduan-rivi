@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
     {
         User::insert([
             'nik' => '1200001',
-            'name' => 'Guru Bk',
+            'name' => 'Guru Kesiswaan',
             'username' => 'admin',
             'password' => Hash::make('12345'),
             'phone' => '0813887621',
@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
 
         User::insert([
             'nik' => '1200002',
-            'name' => 'Osis',
+            'name' => 'Pembina OSIS',
             'username' => 'petugas',
             'password' => Hash::make('12345'),
             'phone' => '0813887621',
